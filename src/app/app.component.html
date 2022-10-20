@@ -1,0 +1,66 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <p-avatar image="assets/lisBlanca.png" pBadge value="4" (click)="doLulz()" shape="circle" severity="danger" size="large" [style]="{'margin-left': '.5em'}"></p-avatar>
+  <span [style]="{'margin-left': '.5em'}">Tropa Impeesa</span>
+
+    <div class="spacer"></div>
+    <p-password [(ngModel)]="password" *ngIf="activateLogin" [feedback]="false" [style]="{'margin-right': '.5em'}"></p-password>
+    <p-avatar image="assets/TibuNemo.ico" *ngIf="activateLogin" (click)="doLogin()" shape="circle" size="medium" [style]="{'margin-right': '.5em'}"></p-avatar>
+</div>
+<div [style]="{height: '50px'}"></div>
+<div class="content" role="main">
+  <div id="card-container">
+    <!-- Card 1 -->
+    <p-card header="Patrulla Búho" subheader="¡Sigiloso y observador!" [style]="{width: '360px'}" styleClass="p-card">
+      <ng-template pTemplate="header">
+          <img alt="Card" src="assets/buho.jpg">
+      </ng-template>
+      
+      <p-knob [(ngModel)]="Buho" valueColor="#437DE2" rangeColor="gray" [readonly]="true" [style]="{'margin-left': '105px'}"></p-knob>      
+      <p-avatar image="assets/fleur-de-lis.png" *ngIf="isFirstPlace1" shape="circle" size="medium" [style]="{'margin-right': '.5em'}"></p-avatar>
+    </p-card>
+
+    <!-- Card 2 -->
+    <p-card header="Patrulla Fénix" subheader="¡Reluciente y fugaz!" [style]="{width: '360px'}" styleClass="p-card">
+      <ng-template pTemplate="header">
+          <img alt="Card" src="assets/fenix.jpg">
+      </ng-template>
+            
+      <p-knob [(ngModel)]="Fenix" valueColor="#E4FB2E" rangeColor="gray" [readonly]="true" [style]="{'margin-left': '105px'}"></p-knob>
+      <p-avatar image="assets/fleur-de-lis.png" *ngIf="isFirstPlace2" shape="circle" size="medium" [style]="{'margin-right': '.5em'}"></p-avatar>
+    </p-card>
+
+    <!-- Card 3 -->
+    <p-card header="Patrulla Lagarto" subheader="¡Rápido y furioso!" [style]="{width: '360px'}" styleClass="p-card">
+      <ng-template pTemplate="header">
+          <img alt="Card" src="assets/lagarto.jpg">
+      </ng-template>
+
+      <p-knob [(ngModel)]="Lagarto" valueColor="#6DF654" rangeColor="gray" [readonly]="true" [style]="{'margin-left': '105px'}"></p-knob>      
+      <p-avatar image="assets/fleur-de-lis.png" *ngIf="isFirstPlace3" shape="circle" size="medium" [style]="{'margin-right': '.5em'}"></p-avatar>
+    </p-card>
+
+    <!-- Card 4 -->
+    <p-card header="Patrulla Lobo" subheader="¡Nocturno y cazador!" [style]="{width: '360px'}" styleClass="p-card">
+      <ng-template pTemplate="header">
+          <img alt="Card" src="assets/lobo.jpg">
+      </ng-template>
+
+      <p-knob [(ngModel)]="Lobo" valueColor="#AC3116" rangeColor="gray" [readonly]="true" [style]="{'margin-left': '105px'}"></p-knob>            
+      <p-avatar image="assets/fleur-de-lis.png" *ngIf="isFirstPlace4" shape="circle" size="medium" [style]="{'margin-right': '.5em'}"></p-avatar>
+    </p-card>
+  </div>
+
+  <div id="button-footer"  *ngIf="activateLogin" >
+    <p-dropdown [options]="dropDownOptions" [(ngModel)]="selectedDropdown" optionLabel="name" optionValue="code"></p-dropdown>
+
+    <p-inputNumber [(ngModel)]="inputVal" [min]="-100" [max]="100" [showButtons]="true" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" [style]="{'margin-left': '.5em'}"></p-inputNumber>
+    <span class="p-buttonset">
+      <button pButton type="button" icon="pi pi-check" (click)="doAceptar()" class="p-button-text" [style]="{'margin-left': '.5em'}"></button>
+      <button pButton type="button" icon="pi pi-times" (click)="doCancelar()" class="p-button-text" [style]="{'margin-left': '.5em'}"></button> 
+      <!-- severity="danger" -->
+    </span>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
